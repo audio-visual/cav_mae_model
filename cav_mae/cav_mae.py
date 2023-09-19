@@ -8,7 +8,8 @@ import torchaudio
 import numpy as np
 from .model import CAVMAE
 def build_model(state_dict: dict):
-    model = CAVMAE(audio_length=512,modality_specific_depth=11)
+    _audio_length = int(state_dict['module.pos_embed_a'].size(1)*2)
+    model = CAVMAE(audio_length=_audio_length,modality_specific_depth=11)
     model.load_state_dict(state_dict)
     return model
 
