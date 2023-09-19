@@ -65,7 +65,7 @@ def audio_preprocess(target_length, melbins):
 
             pt = np.random.randint(-p + 1)
             fbank = fbank[pt : pt + target_length, :]
-	fbank = torch.transpose(fbank, 0, 1)	
+        fbank = torch.transpose(fbank, 0, 1)	
         return fbank
     return _wav2fbank
 
