@@ -20,4 +20,6 @@
  # you should manually change the model mode
  model.eval()
  
+ audio_emb, img_emb = model.module.forward_feat(audio, image)
+ 
  ```
