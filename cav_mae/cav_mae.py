@@ -22,12 +22,12 @@ def visual_preprocess(img_res):
                 std=[0.2290, 0.2240, 0.2250]
             )]) 
 
-def audio_preprocess(target_length):
+def audio_preprocess(target_length, melbins):
     def _wav2fbank(filename):
         waveform, sr = torchaudio.load(filename)
         waveform = waveform - waveform.mean()
         try:
-            fbank = torchaudio.compliance.kaldi.fbank(waveform, htk_compat=True, sample_frequency=sr, use_energy=False, window_type='hanning', num_mel_bins=self.melbins, dither=0.0, frame_shift=10)
+            fbank = torchaudio.compliance.kaldi.fbank(waveform, htk_compat=True, sample_frequency=sr, use_energy=False, window_type='hanning', num_mel_bins=melbins, dither=0.0, frame_shift=10)
         except:
             fbank = torch.zeros([512, 128]) + 0.01
             print('there is a loading error')
