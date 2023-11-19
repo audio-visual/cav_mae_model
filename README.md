@@ -29,3 +29,21 @@
  audio_emb, img_emb = model.module.forward_feat(audio, image)
  
  ```
+
+ ## Compute similarity
+ ```python
+ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+ model = cav_mae.load('ckpt_path').to(device) 
+ 
+ img_size = 224
+
+
+ visual_preprocess, audio_preprocess = cav_mae.visual_preprocess(img_size), cav_mae.audio_preprocess()
+
+ image = visual_preprocess(Image.open('test.png')).unsqueeze(0).to(device) # 1,3,img_size,img_size
+ audio = audio_preprocess('test.wav').unsqueeze(0).to(device) # 1,audio_length,n_mels
+
+ compute_audio_image_similarity(model, audio, image)
+ ```
+
