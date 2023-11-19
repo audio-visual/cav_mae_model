@@ -2,6 +2,10 @@
  please refer to the original cav_mae repository
  
  How to use it:
+ ## Install 
+`pip install git+https://github.com/audio-visual/cmpc2.git`
+ 
+ ## Get features
  ```python
  import torch
  import cav_mae
