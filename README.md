@@ -3,7 +3,7 @@
  
  How to use it:
  ## Install 
-`pip install git+https://github.com/audio-visual/cmpc2.git`
+`pip install git+https://github.com/audio-visual/cav_mae_model.git`
  
  ## Get features
  ```python
