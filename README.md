@@ -48,6 +48,6 @@
  image = visual_preprocess(Image.open('test.png')).unsqueeze(0).to(device) # 1,3,img_size,img_size
  audio = audio_preprocess('test.wav').unsqueeze(0).to(device) # 1,audio_length,n_mels
 
- compute_audio_image_similarity(model, audio, image)
+ cav_mae.compute_audio_image_similarity(model, audio, image)
  ```
 
